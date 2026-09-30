@@ -1,0 +1,16 @@
+# Brief cho AI Assistant
+
+Hãy viết hàm `cartTotal(items, options)` trong file `src/cart.js` bằng JavaScript thuần (plain JavaScript), tuyệt đối không sử dụng dependencies. Bạn cũng có thể chỉnh sửa file `test/cart.test.js` để bổ sung test case.
+
+**Contract (Đầu vào/Đầu ra):**
+- Đầu vào `items`: mảng các object có cấu trúc `[{ name, price, qty }]`.
+- Đầu vào `options`: object chứa `{ vatRate, freeShipFrom, shipFee }`.
+- Công thức tính: 
+  + Subtotal = tổng của (price * qty) cho mọi item.
+  + VAT = subtotal * vatRate.
+  + Shipping = 0 nếu subtotal >= freeShipFrom, ngược lại là shipFee.
+- Đầu ra: Trả về tổng cuối cùng (subtotal + VAT + shipping) dưới dạng một số (Number), được làm tròn đến số nguyên (whole đồng).
+
+**Edge cases và Errors (Trường hợp ngoại lệ và Lỗi):**
+- Nếu giỏ hàng rỗng (empty cart), trả về 0 (không tính VAT, không tính shipping).
+- Nếu bất kỳ item nào có `price` là số âm, hoặc `qty` không phải là một số nguyên (non-integer quantity), phải ném ra lỗi `RangeError`.
